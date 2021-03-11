@@ -18,6 +18,9 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="polynomials\polynomials.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="complex\complex.h">
@@ -27,6 +30,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="rationals\rational.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="polynomials\driver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
