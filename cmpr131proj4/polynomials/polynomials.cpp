@@ -22,10 +22,10 @@ Polynomials::Polynomials(std::vector<double>&& coefficients)
 	cout << "Enter the degree of the polynomial: ";
 	cin >> degree;
 
-	for (int i = 0, i <= degree; i++)
+	for (int i = 0; i <= degree; i++)
 	{
 		cout << "Enter the coefficient for term #" << i << ": ";
-		coefficients.push_back();
+		coefficients.push_back(i);
 	}
 }
 
