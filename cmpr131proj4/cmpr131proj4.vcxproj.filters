@@ -21,9 +21,6 @@
     <ClCompile Include="polynomials\polynomials.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="rationals\rational.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="complex\complex.h">
