@@ -27,10 +27,10 @@ void polyMain()
 		system("cls");
 		cout << "\n3> Polynomials: " << endl;
 		cout << string(40, char(205)) << endl;
-		cout << "\t\tA>  A Polynomial "; << endl;
-		cout << "\t\tB> Multiple Rational Numbers" << endl;
+		cout << "\t\tA>  A Polynomial " << endl;
+		cout << "\t\tB>  Multiple Polynomials " << endl;
 		cout << "\t" << string(40, char(196)) << endl;
-		cout << "\t\t0. return" << endl;
+		cout << "\t\t0> return" << endl;
 		cout << "\t" << string(40, char(205)) << endl;
 		cout << "\t\tOption: ";
 
@@ -41,6 +41,44 @@ void polyMain()
 		{
 		case 'A': polySingular(); break;
 		case 'B': polyMany(); break;
+		default: cout << "\t\t    ERROR-Invalid Option. Please re-enter."; break;
+		}
+		if (option == '0')
+			break;
+		cout << endl << endl;
+		system("pause");
+	}
+}
+
+//Duyen TRan
+void polySingular()
+{
+	char option;
+	while (true)
+	{
+		system("cls");
+		cout << "A> A Polynomial:  " << endl;
+		cout << string(40, char(205)) << endl;
+		cout << "\t\t1>  Enter the number of terms  " << endl;
+		cout << "\t\t2>  Specify the coefficients " << endl;
+		cout << "\t\t3>  Evaluate epxression " << endl;
+		cout << "\t\t4>  Solve for the derivative " << endl;
+		cout << "\t\t5>  Solve for the integral " << endl;
+		cout << string(40, char(196)) << endl;
+		cout << "\t\t0> return" << endl;
+		cout << "\t" << string(40, char(205)) << endl;
+		cout << "\t\tOption: ";
+
+
+		option = inputInteger("", 0, 5);
+
+		switch (option)
+		{
+		case 1: getHigestDegree();  break;
+		case 2: Polynomials(vector<double> && coefficients);  break;
+		case 3: substituteXEqual(double x);  break;
+		case 4: getDerivative(); break;
+		case 5: getIntergral();  break;
 		default: cout << "\t\t    ERROR-Invalid Option. Please re-enter."; break;
 		}
 		if (option == '0')

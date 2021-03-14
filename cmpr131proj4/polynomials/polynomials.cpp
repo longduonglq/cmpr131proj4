@@ -14,14 +14,14 @@ Polynomials operator+(const Polynomials& lhs, const Polynomials& rhs)
 //Duyen TRan
 int Polynomials::getHigestDegree()
 {
-    return degree;
+	cout << "Enter the number of terms(1..100) for the polynomial: ";
+	cin >> degree;
+
+	return degree;
 }
 
 Polynomials::Polynomials(std::vector<double>&& coefficients)
 {
-	cout << "Enter the degree of the polynomial: ";
-	cin >> degree;
-
 	for (int i = 0; i <= degree; i++)
 	{
 		cout << "Enter the coefficient for term #" << i << ": ";
