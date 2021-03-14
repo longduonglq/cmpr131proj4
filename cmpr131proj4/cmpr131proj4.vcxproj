@@ -145,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="complex\complex.h" />
+    <ClInclude Include="input.h" />
     <ClInclude Include="polynomials\driver.h" />
     <ClInclude Include="polynomials\polynomials.h" />
     <ClInclude Include="rationals\rational.h" />
