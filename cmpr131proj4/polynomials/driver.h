@@ -12,3 +12,9 @@ void polyMany();
 
 // main menu with 2 choices a and B
 void polyMain();
+
+//DuyenTran
+Polynomials getPolynomials()
+{
+
+}
