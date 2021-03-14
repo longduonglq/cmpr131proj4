@@ -17,17 +17,3 @@ void polyMany();
 // main menu with 2 choices a and B
 void polyMain();
 
-//DuyenTran
-Polynomials getPolynomials()
-{
-	int degree;
-	cout << "Enter the degree of the polynomial: ";
-	cin >> degree;
-
-	for (int i = 0, i <= degree; i++)
-	{
-		cout << "Enter the coefficient for term #" << i << ": ";
-		coefficients.push_back();
-	}
-
-}

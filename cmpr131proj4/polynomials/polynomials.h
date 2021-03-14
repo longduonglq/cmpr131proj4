@@ -32,4 +32,7 @@ public:
 private:
 	// example. polynomial 13x^2 + 2 is represented by this vector [2, 0, 13]. 
 	std::vector<double> coefficients;
+
+	// I think it should have a variable degree as private.
+	int degree;
 };
