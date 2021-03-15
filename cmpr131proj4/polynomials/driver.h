@@ -2,11 +2,26 @@
 #include "polynomials.h"
 #include<vector>
 #include<iostream>
+#include "../input.h"
 
 using namespace std;
 
 // get polynomials. first ask for degree then ask user to input each coefficients
-Polynomials getPolynomials();
+Polynomials getPolynomials()
+{
+	std::vector<double> coefficients;
+	int degree; 
+	cout << "Enter the number of terms(1..100) for the polynomial: ";
+	cin >> degree;
+
+	for (int i = 0; i <= degree; i++)
+	{
+		cout << "Enter the coefficient for term #" << i << ": ";
+		coefficients.push_back(i);
+	}
+
+	return Polynomials(std::move(coefficients));
+}
 
 // option "single poly"
 void polySingular();
