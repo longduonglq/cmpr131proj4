@@ -1,11 +1,7 @@
-// Name: Christopher, Minh
-// Date: 
-// Description: 
-
 #pragma once
 #include <iostream>
-#include <string>
 #include "input.h"
+#include <string>	
 
 using namespace std;
 
