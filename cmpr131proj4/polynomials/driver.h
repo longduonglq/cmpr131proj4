@@ -6,6 +6,36 @@
 
 using namespace std;
 
+void PolynomialsTest()
+{
+	std::vector<double> coef1 = { 1, 2, 3 };
+	std::vector<double> coef2 = { 4, 5, 6 };
+	auto poly1 = Polynomials(std::move(coef1));
+	auto poly2 = Polynomials(std::move(coef2));
+	std::cout << poly1 << std::endl;
+	std::cout << poly2 << std::endl;
+	std::cout << poly1 + poly2 << std::endl;
+	std::cout << poly1 - poly2 << std::endl;
+	std::cout << poly1 * 0 << std::endl;
+	std::cout << poly1 * 3 << std::endl;
+	std::cout << poly1 * poly2 << std::endl;
+
+	{
+		std::vector<double> coef1 = { 1, 2, 3 };
+		std::vector<double> coef2 = { 4, 0, 6 };
+		auto poly1 = Polynomials(std::move(coef1));
+		auto poly2 = Polynomials(std::move(coef2));
+		std::cout << poly1 << std::endl;
+		std::cout << poly2 << std::endl;
+		std::cout << poly1 + poly2 << std::endl;
+		std::cout << poly1 - poly2 << std::endl;
+		std::cout << poly1 * 0 << std::endl;
+		std::cout << poly1 * 3 << std::endl;
+		std::cout << poly1 * poly2 << std::endl;
+	}
+
+}
+
 // get polynomials. first ask for degree then ask user to input each coefficients
 Polynomials getPolynomials()
 {
@@ -27,7 +57,7 @@ Polynomials getPolynomials()
 void polySingular();
 
 // option "multiple poly"
-void polyMany();
+void polyMany() {}
 
 // main menu with 2 choices a and B
 void polyMain();
@@ -87,15 +117,15 @@ void polySingular()
 
 		option = inputInteger("", 0, 5);
 
-		switch (option)
-		{
-		case 1: getHigestDegree();  break;
-		case 2: Polynomials(vector<double> && coefficients);  break;
-		case 3: substituteXEqual(double x);  break;
-		case 4: getDerivative(); break;
-		case 5: getIntergral();  break;
-		default: cout << "\t\t    ERROR-Invalid Option. Please re-enter."; break;
-		}
+		//switch (option)
+		//{
+		//case 1: getHigestDegree();  break;
+		//case 2: Polynomials(vector<double> && coefficients);  break;
+		//case 3: substituteXEqual(double x);  break;
+		//case 4: getDerivative(); break;
+		//case 5: getIntergral();  break;
+		//default: cout << "\t\t    ERROR-Invalid Option. Please re-enter."; break;
+		//}
 		if (option == '0')
 			break;
 		cout << endl << endl;

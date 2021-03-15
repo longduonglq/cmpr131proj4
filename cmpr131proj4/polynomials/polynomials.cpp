@@ -2,42 +2,47 @@
 #include<iostream>
 #include<vector>
 #include <algorithm>
+#include <string>
 
 using namespace std;
 
 Polynomials operator+(const Polynomials& lhs, const Polynomials& rhs)
 {
-	// std::vector<double> coeff(std::max(lhs.getHigestDegree(), rhs.getHigestDegree()) + 1, 0);
-	auto coeffs = Polynomials::applyElementWise(std::plus<>(), lhs.coefficients, rhs.coefficients);
+	std::vector<double> coeffs;
+	for (int i = 0; i < std::max(lhs.coefficients.size(), rhs.coefficients.size()); i++)
+	{
+		double lhsCoef = i < lhs.coefficients.size() ? lhs.coefficients[i] : 0.0;
+		double rhsCoef = i < rhs.coefficients.size() ? rhs.coefficients[i] : 0.0;
+		coeffs.push_back(lhsCoef + rhsCoef);
+	}
 	return Polynomials(std::move(coeffs));
 }
 
 Polynomials operator-(const Polynomials& lhs, const Polynomials& rhs)
 {
-	auto coeffs = Polynomials::applyElementWise(std::minus<>(), lhs.coefficients, rhs.coefficients);
+	std::vector<double> coeffs;
+	for (int i = 0; i < std::max(lhs.coefficients.size(), rhs.coefficients.size()); i++)
+	{
+		double lhsCoef = i < lhs.coefficients.size() ? lhs.coefficients[i] : 0.0;
+		double rhsCoef = i < rhs.coefficients.size() ? rhs.coefficients[i] : 0.0;
+		coeffs.push_back(lhsCoef - rhsCoef);
+	}
 	return Polynomials(std::move(coeffs));
 }
 
 std::ostream& operator<<(std::ostream& os, const Polynomials& poly)
 {
-	for (int i = poly.getHigestDegree(); i >= 0; i++)
+	for (int i = poly.coefficients.size() - 1; i >= 0; i--)
 	{
-		os << poly.coefficients[i] << (i != 0 ? "+ x^" + i : "+ ");
+		if (poly.coefficients[i] == 0) continue;
+		else if (poly.coefficients[i] < 0)
+			os << std::abs(poly.coefficients[i]) << (i == 0 ? "" : ("x^" + std::to_string(i))) << (i == 0 ? "" : " - ");
+		else if (poly.coefficients[i] > 0)
+			os << poly.coefficients[i] << (i == 0 ? "" : ("x^" + std::to_string(i))) << (i == 0 ? "" : " + ");
 	}
+	if (std::all_of(poly.coefficients.begin(), poly.coefficients.end(), [](auto c) { return c == 0;}))
+		os << "0";
 	return os;
-}
-
-template <typename Iterable, typename BinOp>
-Iterable Polynomials::applyElementWise(BinOp&& op, const Iterable& vec1, const Iterable& vec2)
-{
-	Iterable res;
-	for (auto [it1, it2] = std::tie(vec1.begin(), vec2.begin());
-		it1 != vec1.end() && it2 != vec2.end();
-		it1++, it2++)
-	{
-		res.push_back(BinOp(*it1, *it2));
-	}
-	return res;
 }
 
 Polynomials Polynomials::getDerivative()

@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include "rationals/rational.h"
-
+#include "polynomials/driver.h"
 
 using namespace std;
 
@@ -16,6 +16,7 @@ void mainDriver();
 
 int main()
 {
+	// PolynomialsTest();
 	mainDriver();
 	return 0;
 }

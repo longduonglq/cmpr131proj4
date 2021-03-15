@@ -19,9 +19,6 @@ public:
 	friend Polynomials operator*(const Polynomials& lhs, double constant);
 	friend Polynomials operator*(double constant, const Polynomials& rhs);
 
-	template <typename Iterable, typename Op>
-	static Iterable applyElementWise(Op&&, const Iterable&, const Iterable&);
-	
 	Polynomials getDerivative();
 	Polynomials getIntergral();
 	
