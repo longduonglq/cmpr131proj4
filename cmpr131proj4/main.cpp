@@ -16,7 +16,6 @@ void mainDriver();
 
 int main()
 {
-	// PolynomialsTest();
 	mainDriver();
 	return 0;
 }
@@ -92,8 +91,10 @@ void calculateRation()
 {
 	using namespace rational;
 	int option = 0; // = DriverMenuB();
-	Rational test, test2, normalize;
+	Rational r1, r2;
 	int num = 0, den = 0;
+	Rational r3(621, 889);
+	Rational calculation1, calculation2;
 
 	while (true)
 	{
@@ -102,29 +103,63 @@ void calculateRation()
 		{
 		case 0: break;
 		case 1:
-			test.setNum(num); test.setDenom(den);
-			test.normalize();
-			cout << "\n\tR1 = " << test; break;
+			r1.setNum(num); r1.setDenom(den);
+			r1.normalize();
+			cout << "\n\tR1 = " << r1; break;
 		case 2:
-			test2.setNum(num); test2.setDenom(den);
-			test2.normalize();
-			cout << "\n\tR2 = " << test2; break;
+			r2.setNum(num); r2.setDenom(den);
+			r2.normalize();
+			cout << "\n\tR2 = " << r2; break;
 		case 3:
-			cout << "\n\tR1 < R2 " << " -> " << test << " < " << test2 << " ? " << (test < test2 ? "true" : "false") << "\n";
-			cout << "\tR1 <= R2 " << " -> " << test << " <= " << test2 << " ? " << (test <= test2 ? "true" : "false") << "\n";
-			cout << "\tR1 > R2 " << " -> " << test << " > " << test2 << " ? " << (test > test2 ? "true" : "false") << "\n";
-			cout << "\tR1 >= R2 " << " -> " << test << " >= " << test2 << " ? " << (test >= test2 ? "true" : "false") << "\n";
-			cout << "\tR1 == R2 " << " -> " << test << " == " << test2 << " ? " << (test == test2 ? "true" : "false") << "\n";
-			cout << "\tR1 != R2 " << " -> " << test << " != " << test2 << " ? " << (test != test2 ? "true" : "false") << "\n"; break;
+			cout << "\n\tR1 < R2 " << " -> " << r1 << " < " << r2 << " ? " << (r1 < r2 ? "true" : "false") << "\n";
+			cout << "\tR1 <= R2 " << " -> " << r1 << " <= " << r2 << " ? " << (r1 <= r2 ? "true" : "false") << "\n";
+			cout << "\tR1 > R2 " << " -> " << r1 << " > " << r2 << " ? " << (r1 > r2 ? "true" : "false") << "\n";
+			cout << "\tR1 >= R2 " << " -> " << r1 << " >= " << r2 << " ? " << (r1 >= r2 ? "true" : "false") << "\n";
+			cout << "\tR1 == R2 " << " -> " << r1 << " == " << r2 << " ? " << (r1 == r2 ? "true" : "false") << "\n";
+			cout << "\tR1 != R2 " << " -> " << r1 << " != " << r2 << " ? " << (r1 != r2 ? "true" : "false") << "\n"; break;
 		case 4:
-			cout << "\n\tAddiction:\t R1 + R2 --> " << test << " + " << test2 << " = " << test + test2;
-			cout << "\n\tSubtraction:\t R2 - R1 --> " << test << " - " << test2 << " = " << test2 - test;
-			cout << "\n\tMultiplication:\t R1 * R2 --> " << test << " * " << test2 << " = " << test * test2;
-			cout << "\n\tDivision:\t R2 / R1 --> " << test << " / " << test2 << " = " << test2 / test;
+			calculation1 = r1 + r2;
+			calculation1.normalize();
+			cout << "\n\tAddiction:\t R1 + R2 --> " << r1 << " + " << r2 << " = " << calculation1;
+			calculation1 = r2 - r1;
+			calculation1.normalize();
+			cout << "\n\tSubtraction:\t R2 - R1 --> " << r2 << " - " << r1 << " = " << calculation1;
+			calculation1 = r1 * r2;
+			calculation1.normalize();
+			cout << "\n\tMultiplication:\t R1 * R2 --> " << r1 << " * " << r2 << " = " << calculation1;
+			calculation1 = r2 / r1;
+			calculation1.normalize();
+			cout << "\n\tDivision:\t R2 / R1 --> " << r2 << " / " << r1 << " = " << calculation1;
 			break;
 		case 5:
-			//missing
 
+			cout << "\n\tR1 = " << r1;
+			cout << "\n\tR2 = " << r2;
+			cout << "\n\tR3 = " << r3;
+
+			cout << "\n\n\tEvaluating Expression...";
+			cout << "\n\n\t\t(3 * (R1 + R2) / 7) / (R2 - R1 / 9) >= 621/889 ?";
+
+			calculation1 = r1 + r2;
+			calculation2 = r1 / 9;
+			calculation1.normalize();
+			calculation2.normalize();
+			cout << "\n\n\tStep #1: (3 * (" << calculation1 << ") / 7) / (R2 - (" << calculation2 << ")) >= " << r3 << " ?";
+
+			calculation1 = 3 * (r1 + r2);
+			calculation2 = r2 - (r1 / 9);
+			calculation1.normalize();
+			calculation2.normalize();
+			cout << "\n\tStep #2: ((" << calculation1 << ") / 7) / (" << calculation2 << ") >= " << r3 << " ?";
+
+			calculation1 = (3 * (r1 + r2)) / 7;
+			calculation1.normalize();
+			cout << "\n\tStep #3: (" << calculation1 << ") / (" << calculation2 << ") >= " << r3 << "?";
+
+			calculation2 = calculation1 / (r2 - (r1 / 9));
+			calculation2.normalize();
+			cout << "\n\tStep #4: (" << calculation2 << ") >= " << r3 << " ?";
+			cout << "\n\tStep #5: " << ((calculation2 >= r3) ? "True" : "False"); break;
 
 		default: cout << "\t\t    ERROR-Invalid Option. Please re-enter."; break;
 		}
