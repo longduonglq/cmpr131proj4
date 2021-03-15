@@ -2,7 +2,6 @@
 // Date: 03-11-21
 // Description: Chapter 4 Solution
 
-#include "input.h"
 #include "complex.h"
 #include "rationals/rational.h"
 #include "polynomials/driver.h"
