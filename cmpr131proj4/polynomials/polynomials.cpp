@@ -66,6 +66,21 @@ int Polynomials::getHigestDegree() const
 {
 	return static_cast<int>(coefficients.size()) - 1;
 }
+//Duyen TRan
+double Polynomials::substituteXEqual(double x)
+{
+	double substitule = 0;
+
+	for (int index = 0; index <= degree; index++)
+	{
+		substitule += coefficients.at(index) * pow(x, degree - index);
+	}
+	
+	cout << "subtutute of the polynomial at x=" << x << " is: " << substitule << endl;
+
+	return substitule;
+}
+
 
 Polynomials::Polynomials(std::vector<double>&& _coefficients)
 	: coefficients {std::move(_coefficients)}
