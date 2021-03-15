@@ -16,8 +16,8 @@ void mainDriver();
 
 int main()
 {
-	// PolynomialsTest();
-	mainDriver();
+	PolynomialsTest();
+	// mainDriver();
 	return 0;
 }
 

@@ -32,6 +32,8 @@ void PolynomialsTest()
 		std::cout << poly1 * 0 << std::endl;
 		std::cout << poly1 * 3 << std::endl;
 		std::cout << poly1 * poly2 << std::endl;
+		std::cout << poly1.getDerivative() << std::endl;
+		std::cout << poly1.getIntergral() << std::endl;
 	}
 
 }

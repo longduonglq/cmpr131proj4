@@ -63,6 +63,7 @@ Polynomials Polynomials::getIntergral()
 	{
 		newCoeffs[i] = newCoeffs[i - 1] * (1 / static_cast<double>(i));
 	}
+	newCoeffs.at(0) = 0;
 	return Polynomials(std::move(newCoeffs));
 }
 
