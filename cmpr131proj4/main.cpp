@@ -1,12 +1,31 @@
-// Name: 
-// Date: 
-// Description: 
+// Participants: Gabriela Lopez, Andrew Thompson, Long Duong, Christopher Gomez, Gia Minh Hoang, Duyen Tran and Lincoln Nguyen
+// Date: 03-11-21
+// Description: Chapter 4 Solution
 
-#include <iostream>
+#include "input.h"
+#include "complex.h"
 #include "rationals/rational.h"
 #include "polynomials/driver.h"
+#include <iostream>
+#include <string>
 
 using namespace std;
+
+//Precondition: N/A
+//Postcondition: Prints menu and returns user int option selected
+int menuOption();
+
+//Precondition: N/A
+//Postcondition: Prints menu to determine if operations with 2 complex numbers or a complex with constant
+void complexNumbersMenu();
+
+//Precondition: N/A
+//Postcondition: Contains solution for operations with a complex number and a constant
+void aComplexNumber();
+
+//Precondition: N/A
+//Postcondition: Contains solution for operations with two complex numbers
+void twoComplexNumbers();
 
 void RationalNumber();
 void calculateRation();
@@ -16,9 +35,177 @@ void mainDriver();
 
 int main()
 {
-	// PolynomialsTest();
-	mainDriver();
+	do
+	{
+		switch (menuOption())
+		{
+		case 0:  exit(0);
+		case 1:  system("cls"); complexNumbersMenu();     break;
+		case 2:  system("cls"); mainDriver();  break;
+		case 3:  system("cls"); /*polynomial();*/ break; //startTimer();
+		default: cout << "\t\t    ERROR-Invalid Option. Please re-enter."; break;
+		}
+		cout << '\n';
+		system("pause");
+	} while (true);
 	return 0;
+}
+
+int menuOption()
+{
+	system("cls");
+	cout << '\n';
+	cout << '\t' << char(201) << string(42, char(205)) << char(187) << '\n';
+	cout << '\t' << char(186) << "    \t    CMPR131: Chapter 4             " << char(186) << '\n';
+	cout << '\t' << char(186) << "      \t\t  Made by:                 " << char(186) << '\n';
+	cout << '\t' << char(186) << " - Gabriela Lopez\t- Andrew Thompson  " << char(186) << '\n';
+	cout << '\t' << char(186) << " - Lincoln Nguyen\t- Long Duong       " << char(186) << '\n';
+	cout << '\t' << char(186) << " - Christopher Gomez\t- Gia Minh Hoang   " << char(186) << '\n';
+	cout << '\t' << char(186) << " - Duyen Tran                             " << char(186) << '\n';
+	cout << "\t" << char(204) << string(42, char(205)) << char(185) << "\n";
+	cout << "\t" << char(186) << "   1: Complex Numbers                     " << char(186) << "\n";
+	cout << "\t" << char(186) << "   2: Rational Numbers                    " << char(186) << "\n";
+	cout << "\t" << char(186) << "   3: Polinomials                         " << char(186) << "\n";
+	cout << "\t" << char(199) << string(42, char(196)) << char(182) << "\n";
+	cout << "\t" << char(186) << "   0: Exit                                " << char(186) << "\n";
+	cout << "\t" << char(200) << string(42, char(205)) << char(188) << "\n";
+
+	int option = inputInteger("\t    Option: ", 0, 3);
+	cin.clear();
+	return option;
+}
+
+void complexNumbersMenu()
+{
+	Complex object;
+	int option;
+	do
+	{
+		system("cls");
+		object.complexHeader();
+		option = object.complexMainMenu();
+		if (option == 0)
+			break;
+		else
+			switch (option)
+			{
+			case 1: aComplexNumber(); break;
+			case 2: twoComplexNumbers(); break;
+			default: cout << "\t\t    ERROR-Invalid Option. Please re-enter."; break;
+			}
+		system("pause");
+	} while (true);
+}
+
+void aComplexNumber()
+{
+	Complex number1;
+	Complex copyNumber(number1);
+	int option, aConstant;
+	do
+	{
+		system("cls");
+		number1.complexHeader();
+		option = number1.aComplexMenu();
+		if (option == 0)
+			break;
+		else
+			switch (option)
+			{
+			case 1: number1.setRealPart(inputDouble("\n\tEnter the real part of the number: ")); break;
+
+			case 2: number1.setImaginaryPart(inputDouble("\n\tEnter the imaginary part of the number: ")); break;
+
+			case 3: cout << "\tThe complex number: " << number1 << '\n';  break;
+
+			case 4:
+				copyNumber = number1;
+				cout << "\n\tOriginal number " << copyNumber << " --> " << -copyNumber << '\n';
+				break;
+
+			case 5: 
+				aConstant = inputDouble("\nEnter a value (double): ");
+				cout << "\tAddition: " << aConstant << " + " << number1.getRealPart() 
+					<< "= " << aConstant + number1 << '\n';
+				cout << "\tAddition: " << number1.getRealPart() << " + " << aConstant 
+					<< "= " << number1 + aConstant << '\n';
+				break;
+
+			case 6: 
+				aConstant = inputDouble("\nEnter a value (double): ");
+				cout << "\tSubtraction: " << aConstant << " - " << number1.getRealPart() 
+					<< "= " << aConstant - number1 << '\n';
+				cout << "\tSubtraction: " << number1.getRealPart() << " - " << aConstant 
+					<< "= " << number1 - aConstant << '\n';
+				break;
+
+			case 7: 
+				aConstant = inputDouble("\nEnter a value (double): ");
+				cout << "\tMultiplication: " << aConstant << " * " << number1.getRealPart() 
+					<< "= " << aConstant * number1 << '\n';
+				cout << "\tMultiplication: " << number1.getRealPart() << " * " << aConstant 
+					<< "= " << number1 * aConstant << '\n';
+				break;
+
+			case 8: 
+				aConstant = inputDouble("\nEnter a value (double): ");
+				cout << "\tDivision: " << aConstant << " / " << number1.getRealPart()
+					<< "= " << aConstant / number1 << '\n';
+				cout << "\tDivision: " << number1.getRealPart() << " / " << aConstant
+					<< "= " << number1 / aConstant << '\n';
+				break;
+
+			default: cout << "\t\t    ERROR-Invalid Option. Please re-enter."; break;
+			}
+		system("pause");
+	} while (true);
+}
+
+void twoComplexNumbers()
+{
+	Complex number1, number2, result;
+	int option;
+	do
+	{
+		system("cls");
+		number1.complexHeader();
+		option = number1.twoComplexMenu();
+		if (option == 0)
+			break;
+		else
+			switch (option)
+			{
+			case 1: cin >> number1; break;
+
+			case 2: cin >> number2; break;
+
+			case 3: 
+				if(number1 == number2)
+					cout << "\n\t(" << number1 <<") == (" << number2 << ") ? true\n";
+				else
+					cout << "\n\t(" << number1 << ") == (" << number2 << ") ? false\n";
+				if (number1 != number2)
+					cout << "\n\t(" << number1 << ") != (" << number2 << ") ? true\n\n";
+				else
+					cout << "\n\t(" << number1 << ") != (" << number2 << ") ? false\n\n";
+				break;
+
+			case 4: 
+				result = number1 + number2;
+				cout << "\n\tThe result of (" << number1 << ") + (" << number2 << ") = " << result;
+				result = number1 - number2;
+				cout << "\n\tThe result of (" << number1 << ") - (" << number2 << ") = " << result;
+				result = number1 * number2;
+				cout << "\n\tThe result of (" << number1 << ") * (" << number2 << ") = " << result;
+				result = number1 / number2;
+				cout << "\n\tThe result of (" << number1 << ") / (" << number2 << ") = " << result << "\n\n";
+				break;
+
+			case 5: break;
+			default: cout << "\t\t    ERROR-Invalid Option. Please re-enter."; break;
+			}
+		system("pause");
+	} while (true);
 }
 
 void mainDriver()

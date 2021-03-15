@@ -139,11 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="complex.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="polynomials\polynomials.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="complex\complex.h" />
+    <ClInclude Include="complex.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="polynomials\driver.h" />
     <ClInclude Include="polynomials\polynomials.h" />

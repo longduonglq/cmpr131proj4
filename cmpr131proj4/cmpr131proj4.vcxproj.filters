@@ -21,11 +21,11 @@
     <ClCompile Include="polynomials\polynomials.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="complex.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="complex\complex.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="polynomials\polynomials.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -36,6 +36,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="input.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="complex.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
