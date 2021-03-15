@@ -35,5 +35,5 @@ private:
 	std::vector<double> coefficients;
 
 	// I think it should have a variable degree as private., could be. i would think it would just be size of coefficients - 1
-	int degree;
+	int degree = coefficients.size() - 1;
 };
