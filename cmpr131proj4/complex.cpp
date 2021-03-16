@@ -3,6 +3,7 @@
 // Description: Complex numbers implementation
 
 #include "complex.h"
+#include "input.h"
 
 Complex::Complex() : real(0.0), imag(0.0)
 {}
@@ -285,19 +286,20 @@ void evaluate(const Complex& C1, const Complex& C2)
 	cout << "\tC1 = " << C1 << '\n';
 	cout << "\tC2 = " << C2 << '\n';
 	cout << "\tC3 = " << C3 << "\n\n";
-	cout << "Evaluating expression...\n";
+	cout << "\tEvaluating expression...\n";
 	cout << "\t (3 *(C1 + C2) /7) / (C2 - C1 / 9) != (" << C3 << ") ?";
-	cout << "\nStep #1: (3 *(C1 + C2) /7) /" << "(C2 - " << C1 / 9 << ") = (" << C3 << ")";
-	cout << "\nStep #2: ((" << 3 * (C1 + C2) << ") / 7) /" << C2 - (C1 / 9) << ") != (" << C3 << ")";
-	cout << "\nStep #3: (" << (3 * (C1 + C2)) / 7 << ") /( " << C2 - (C1 / 9) << ") != (" << C3 << ")";
-	cout << "\nStep #4: (" << ((3 * (C1 + C2)) / 7) / (C2 - (C1 / 9)) << ") != (" << C3 << ") ?";
-	cout << "\nStep #5: ";
+	cout << "\n\tStep #1: (3 *(C1 + C2) /7) /" << "(C2 - " << C1 / 9 << ") = (" << C3 << ")";
+	cout << "\n\tStep #2: ((" << 3 * (C1 + C2) << ") / 7) /" << C2 - (C1 / 9) << ") != (" << C3 << ")";
+	cout << "\n\tStep #3: (" << (3 * (C1 + C2)) / 7 << ") /( " << C2 - (C1 / 9) << ") != (" << C3 << ")";
+	cout << "\n\tStep #4: (" << ((3 * (C1 + C2)) / 7) / (C2 - (C1 / 9)) << ") != (" << C3 << ") ?";
+	cout << "\n\tStep #5: ";
 	if (((3 * (C1 + C2)) / 7) / (C2 - (C1 / 9)) != C3)
 	{
-		cout << "true";
+		cout << "\ttrue";
 	}
 	else if (((3 * (C1 + C2)) / 7) / (C2 - (C1 / 9)) == C3)
 	{
-		cout << "false";
+		cout << "\tfalse";
 	}
+	cout << '\n';
 }

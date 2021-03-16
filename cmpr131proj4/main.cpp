@@ -2,13 +2,15 @@
 // Date: 03-11-21
 // Description: Chapter 4 Solution
 
-#include "complex.h"
-#include "rationals/rational.h"
-#include "polynomials/driver.h"
+
 #include <iostream>
 #include <string>
 
 using namespace std;
+
+#include "complex.h"
+#include "rationals/rational.h"
+#include "polynomials/driver.h"
 
 //Precondition: N/A
 //Postcondition: Prints menu and returns user int option selected
@@ -200,7 +202,9 @@ void twoComplexNumbers()
 				cout << "\n\tThe result of (" << number1 << ") / (" << number2 << ") = " << result << "\n\n";
 				break;
 
-			case 5: break;
+			case 5: 
+				evaluate(number1, number2);
+				break;
 			default: cout << "\t\t    ERROR-Invalid Option. Please re-enter."; break;
 			}
 		system("pause");
@@ -221,19 +225,17 @@ void mainDriver()
 		cout << "\n\t" << string(40, char(205));
 		cout << "\n\t\t0. return";
 		cout << "\n\t" << string(40, char(205));
-		cout << "\n\t\tOption: ";
 
+		option = inputChar("\n\t\tOption: ", input);
 
-		option = inputChar("", input);
-
+		if (option == '0')
+			break;
 		switch (toupper(option))
 		{
 		case 'A':RationalNumber(); break;
 		case 'B': calculateRation(); break;
 		default: cout << "\t\t    ERROR-Invalid Option. Please re-enter."; break;
 		}
-		if (option == '0')
-			break;
 		cout << "\n\n";
 		system("pause");
 	}
@@ -252,9 +254,8 @@ int DriverMenuA()
 	cout << "\t8. Multiply (*) the rational number with a constant\n";
 	cout << "\t9. Divide (/) the rational number with a constant\n";
 	cout << "\t0. return\n";
-	cout << "\tOption: ";
 
-	char option = inputInteger("", 0, 9);
+	char option = inputInteger("\tOption: ", 0, 9);
 
 	return option;
 }
@@ -268,9 +269,8 @@ int DriverMenuB()
 	cout << "\t4. Evaluate arithmatic operators (+, - , * and /) of R1 and R2\n";
 	cout << "\t5. Evaluate (3 * (R1 + R2) / 7) / (R2 - R1 / 9) >= 621/889\n";
 	cout << "\t0. return\n";
-	cout << "\tOption: ";
 
-	char option = inputInteger("", 0, 5);
+	char option = inputInteger("\tOption: ", 0, 5);
 	return option;
 }
 

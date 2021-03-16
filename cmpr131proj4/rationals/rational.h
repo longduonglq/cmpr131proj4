@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-#include "input.h"
+#include "../input.h"
 #include <string>	
 
 using namespace std;

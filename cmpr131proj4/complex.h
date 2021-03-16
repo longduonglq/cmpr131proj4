@@ -4,7 +4,6 @@
 
 #pragma once
 
-#include "input.h"
 #include <iostream>
 using namespace std;
 
