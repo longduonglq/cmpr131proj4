@@ -39,17 +39,19 @@ void PolynomialsTest()
 }
 
 // get polynomials. first ask for degree then ask user to input each coefficients
-Polynomials getPolynomials()
+Polynomials getPolynomials(int degree)
 {
 	std::vector<double> coefficients;
-	int degree; 
+	double temp;
+	/*int degree; 
 	cout << "Enter the number of terms(1..100) for the polynomial: ";
-	cin >> degree;
+	cin >> degree;*/
 
 	for (int i = 0; i <= degree; i++)
 	{
 		cout << "Enter the coefficient for term #" << i << ": ";
-		coefficients.push_back(i);
+		cin >> temp;
+		coefficients.push_back(temp);
 	}
 
 	return Polynomials(std::move(coefficients));
@@ -102,6 +104,9 @@ void polyMain()
 //Postcondition: print put the menu choice on a polynomial.
 void polySingular()
 {
+	Polynomials object;
+	int degree;
+
 	char option;
 	while (true)
 	{
@@ -120,12 +125,22 @@ void polySingular()
 
 
 		option = inputInteger("", 0, 5);
-		Polynomials object;
+		
 
 		switch (option)
 		{
-		case 1: object.getHigestDegree();  break;
-		case 2:  break;
+		case 1:
+			do
+			{
+				cout << "Enter the number of terms(1..100) for the polynomial: ";
+				cin >> degree;
+			} while (degree <= 0);
+			
+			break;
+
+		case 2:
+			getPolynomials(degree);
+			break;
 		case 3: object.substituteXEqual();  break;
 		case 4: object.getDerivative(); break;
 		case 5: object.getIntergral();  break;

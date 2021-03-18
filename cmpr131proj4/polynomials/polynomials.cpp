@@ -99,7 +99,7 @@ void Polynomials::substituteXEqual()
 		substitule += coefficients.at(index) * pow(x, degree - index);
 	}
 	
-	cout << "subtutute of the polynomial at x=" << x << " is: " << substitule << endl;
+	cout << "subtutute of the polynomial at x = " << x << " is: " << substitule << endl;
 
 }
 

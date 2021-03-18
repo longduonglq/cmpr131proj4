@@ -43,7 +43,7 @@ int main()
 		case 0:  exit(0);
 		case 1:  system("cls"); complexNumbersMenu();     break;
 		case 2:  system("cls"); mainDriver();  break;
-		case 3:  system("cls"); /*polynomial();*/ break; //startTimer();
+		case 3:  system("cls"); polyMain(); break; //startTimer();
 		default: cout << "\t\t    ERROR-Invalid Option. Please re-enter."; break;
 		}
 		cout << '\n';
