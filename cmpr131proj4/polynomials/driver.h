@@ -120,16 +120,17 @@ void polySingular()
 
 
 		option = inputInteger("", 0, 5);
+		Polynomials object;
 
-		//switch (option)
-		//{
-		//case 1: getHigestDegree();  break;
-		//case 2: Polynomials(vector<double> && coefficients);  break;
-		//case 3: substituteXEqual(double x);  break;
-		//case 4: getDerivative(); break;
-		//case 5: getIntergral();  break;
-		//default: cout << "\t\t    ERROR-Invalid Option. Please re-enter."; break;
-		//}
+		switch (option)
+		{
+		case 1: object.getHigestDegree();  break;
+		case 2:   break;
+		case 3: object.substituteXEqual();  break;
+		case 4: object.getDerivative(); break;
+		case 5: object.getIntergral();  break;
+		default: cout << "\t\t    ERROR-Invalid Option. Please re-enter."; break;
+		}
 		if (option == '0')
 			break;
 		cout << endl << endl;
