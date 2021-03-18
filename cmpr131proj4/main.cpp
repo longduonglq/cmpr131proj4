@@ -66,7 +66,7 @@ int menuOption()
 	cout << "\t" << char(204) << string(42, char(205)) << char(185) << "\n";
 	cout << "\t" << char(186) << "   1: Complex Numbers                     " << char(186) << "\n";
 	cout << "\t" << char(186) << "   2: Rational Numbers                    " << char(186) << "\n";
-	cout << "\t" << char(186) << "   3: Polinomials                         " << char(186) << "\n";
+	cout << "\t" << char(186) << "   3: Polynomials                         " << char(186) << "\n";
 	cout << "\t" << char(199) << string(42, char(196)) << char(182) << "\n";
 	cout << "\t" << char(186) << "   0: Exit                                " << char(186) << "\n";
 	cout << "\t" << char(200) << string(42, char(205)) << char(188) << "\n";

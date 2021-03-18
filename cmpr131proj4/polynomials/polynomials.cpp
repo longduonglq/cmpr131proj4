@@ -1,3 +1,6 @@
+//Names: Long Duong, Duyen Tran, Lincoln Nguyen
+//Date: 3/17/2021
+//Description: Implementation file for the polynomials class
 #include "polynomials.h"
 #include<iostream>
 #include<vector>
@@ -5,9 +8,12 @@
 #include <string>
 
 using namespace std;
-
-//Precondition: 2 polynomials
-//Postcondition: the sum results of those polynomials.
+Polynomials Polynomials::operator= (const Polynomials& rhs)
+{
+	coefficients = rhs.coefficients;
+	/*degree = rhs.degree;*/
+	return *this;
+}
 Polynomials operator+(const Polynomials& lhs, const Polynomials& rhs)
 {
 	std::vector<double> coeffs;
@@ -20,8 +26,6 @@ Polynomials operator+(const Polynomials& lhs, const Polynomials& rhs)
 	return Polynomials(std::move(coeffs));
 }
 
-//Precondition: 2 polynomials
-//Postcondition: the subtraction results of those polynomials.
 Polynomials operator-(const Polynomials& lhs, const Polynomials& rhs)
 {
 	std::vector<double> coeffs;
@@ -34,7 +38,6 @@ Polynomials operator-(const Polynomials& lhs, const Polynomials& rhs)
 	return Polynomials(std::move(coeffs));
 }
 
-
 std::ostream& operator<<(std::ostream& os, const Polynomials& poly)
 {
 	for (int i = poly.coefficients.size() - 1; i >= 0; i--)
@@ -45,13 +48,11 @@ std::ostream& operator<<(std::ostream& os, const Polynomials& poly)
 		else if (poly.coefficients[i] > 0)
 			os << poly.coefficients[i] << (i == 0 ? "" : ("x^" + std::to_string(i))) << (i == 0 ? "" : " + ");
 	}
-	if (std::all_of(poly.coefficients.begin(), poly.coefficients.end(), [](auto c) { return c == 0;}))
+	if (std::all_of(poly.coefficients.begin(), poly.coefficients.end(), [](auto c) { return c == 0; }))
 		os << "0";
 	return os;
 }
 
-//Precondition: A polynomial
-//Postcondition: the derivative of that polynomial
 Polynomials Polynomials::getDerivative()
 {
 	std::vector<double> newCoeffs(coefficients);
@@ -62,9 +63,6 @@ Polynomials Polynomials::getDerivative()
 	newCoeffs.pop_back();
 	return Polynomials(std::move(newCoeffs));
 }
-
-//Precondition: A polynomial
-//Postcondition: the integral of that polynomial
 Polynomials Polynomials::getIntergral()
 {
 	std::vector<double> newCoeffs(coefficients);
@@ -77,41 +75,33 @@ Polynomials Polynomials::getIntergral()
 	return Polynomials(std::move(newCoeffs));
 }
 
-//Precondition: N/A
-//Postcondition: return the highest degree of the polynomial
-int Polynomials::getHigestDegree() const 
+//Duyen TRan
+int Polynomials::getHigestDegree() const
 {
 	return static_cast<int>(coefficients.size()) - 1;
 }
-
-//Precondition: x valueable
-//Postcondition:show the result of the polynomial at the x value.
-void Polynomials::substituteXEqual()
+//Duyen TRan
+double Polynomials::substituteXEqual(double x)
 {
 	double substitule = 0;
-	double x;
 
-	cout << "X = ";
-	cin >> x;
-
-	for (int index = 0; index <= degree; index++)
+	for (int index = getHigestDegree(); index >=0; index--)
 	{
-		substitule += coefficients.at(index) * pow(x, degree - index);
+		substitule += coefficients.at(index) * pow(x, index);
 	}
-	
-	cout << "subtutute of the polynomial at x = " << x << " is: " << substitule << endl;
 
+	cout << "Evalutation of the polynomial at x = " << x << " is: " << substitule << endl;
+
+	return substitule;
 }
 
-//Precondition: N/A
-//Postcondition: constructor
+
 Polynomials::Polynomials(std::vector<double>&& _coefficients)
-	: coefficients {std::move(_coefficients)}
+	: coefficients{ std::move(_coefficients) }
 {
 }
 
-//Precondition: 2 polynomials
-//Postcondition: the multiplication results of those 2 polynomials
+
 Polynomials operator *(const Polynomials& lhs, const Polynomials& rhs)
 {
 	std::vector<double> coeffs(lhs.getHigestDegree() + rhs.getHigestDegree() + 1, 0);
@@ -125,8 +115,6 @@ Polynomials operator *(const Polynomials& lhs, const Polynomials& rhs)
 	return Polynomials(std::move(coeffs));
 }
 
-//Precondition:  a polynomial and a number
-//Postcondition: the multiplication results of a polynomial and a number.
 Polynomials operator*(const Polynomials& lhs, double constant)
 {
 	std::vector<double> coeffs(lhs.coefficients);
