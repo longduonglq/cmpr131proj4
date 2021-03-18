@@ -3,11 +3,18 @@
 
 namespace rational
 {
-	Rational::Rational() : numer(0), denom(1) {}
-	Rational::Rational(int newNumer, int newDenom) : numer(newNumer), denom(newDenom) {}
-	Rational::Rational(int newNumer) : numer(newNumer), denom(1) {}
+	Rational::Rational() : numer(0), denom(1) 
+	{}
 
-	int GreatestCommondenom(int num1, int num2) {
+	Rational::Rational(int newNumer, int newDenom) : numer(newNumer), denom(newDenom) 
+	{}
+
+	Rational::Rational(int newNumer) : numer(newNumer), denom(1) 
+	{}
+
+
+	int GreatestCommondenom(int num1, int num2) 
+	{
 		if (num1 == 0 || num2 == 0)
 			return 1;
 		if (num1 < 0)
@@ -21,11 +28,13 @@ namespace rational
 		}
 		return num1;
 	}
+
 	void Rational::setNum(int num)
 	{
 		num = inputInteger("\n\tEnter an integer for the numer:");
 		numer = num;
 	}
+
 	void Rational::setDenom(int den)
 	{
 		while (true)
@@ -50,7 +59,8 @@ namespace rational
 		return denom;
 	}
 
-	void Rational::normalize() {
+	void Rational::normalize() 
+	{
 		if (numer == 0) {
 			denom = 1;
 		}
@@ -62,7 +72,6 @@ namespace rational
 		numer = numer / div;
 		denom = denom / div;
 	}
-
 
 	bool operator == (const Rational obj1, const Rational obj2)
 	{
