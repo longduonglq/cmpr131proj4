@@ -145,7 +145,7 @@ void polySingular()
 		cout << '\t'<< string(40, char(205)) << endl;
 		cout << "\t\t1>  Enter the number of terms  " << endl;
 		cout << "\t\t2>  Specify the coefficients " << endl;
-		cout << "\t\t3>  Evaluate epxression " << endl;
+		cout << "\t\t3>  Evaluate expression " << endl;
 		cout << "\t\t4>  Solve for the derivative " << endl;
 		cout << "\t\t5>  Solve for the integral " << endl;
 		cout << '\t' << string(40, char(196)) << endl;

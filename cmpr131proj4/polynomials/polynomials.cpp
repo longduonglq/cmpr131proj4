@@ -89,8 +89,8 @@ double Polynomials::substituteXEqual(double x)
 	{
 		substitule += coefficients.at(index) * pow(x, index);
 	}
-
-	cout << "Evalutation of the polynomial at x = " << x << " is: " << substitule << endl;
+	
+	cout << "Substitute of the polynomial at x = " << x << " is: " << substitule << endl;
 
 	return substitule;
 }
