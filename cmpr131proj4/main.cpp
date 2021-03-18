@@ -102,7 +102,8 @@ void aComplexNumber()
 {
 	Complex number1;
 	Complex copyNumber(number1);
-	int option, aConstant;
+	int option;
+	double aConstant;
 	do
 	{
 		system("cls");
