@@ -149,7 +149,7 @@ void polySingular()
 		cout << "\t\t4>  Solve for the derivative " << endl;
 		cout << "\t\t5>  Solve for the integral " << endl;
 		cout << '\t' << string(40, char(196)) << endl;
-		cout <<'\t'<< '\t' << "\t\t0> return" << endl;
+		cout <<'\t'<< '\t' << "\t0> return" << endl;
 		cout << '\t' << string(40, char(205)) << endl;
 		cout << "\t\tOption: ";
 
@@ -182,7 +182,7 @@ void polySingular()
 			if (inputCheck) 
 			{
 				cout << "P1(x) = " << object << '\n';
-				constant = inputDouble("\nEnter the value of x to evaluate the polynomial");
+				constant = inputDouble("\nEnter the value of x to evaluate the polynomial: ");
 				object.substituteXEqual(constant);
 				break;
 			}
@@ -197,7 +197,7 @@ void polySingular()
 			if (inputCheck)
 			{
 				cout << "\tPolynomial(x) = " << object << '\n';
-				cout << "\n\tDerivative" << object.getDerivative();
+				cout << "\n\tDerivative = " << object.getDerivative();
 				break;
 			}
 			else
@@ -211,7 +211,7 @@ void polySingular()
 			if (inputCheck)
 			{
 				cout << "\tPolynomial(x) = " << object << '\n';
-				cout << "\n\tIntegeral" << object.getIntergral();
+				cout << "\n\tIntegeral = " << object.getIntergral();
 				break;
 			}
 			else
