@@ -42,7 +42,7 @@ namespace rational
 			den = inputInteger("\n\tEnter an integer for the denom:");
 
 			if (den == 0)
-				cout << "\n\tdenom cannot be zero please try again.\n";
+				cout << "\n\tDenom cannot be zero please try again.\n";
 			else
 				break;
 		}
