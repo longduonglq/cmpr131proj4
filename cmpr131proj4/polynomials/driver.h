@@ -136,7 +136,7 @@ void polySingular()
 	Polynomials object;
 	int degree = 0;
 	double constant;
-
+	bool inputCheck = false;
 	char option;
 	while (true)
 	{
@@ -171,27 +171,54 @@ void polySingular()
 			}
 			else
 			{
-				object = getPolynomials(degree); break;
+				object = getPolynomials(degree);
+				inputCheck = true;
+				break;
 			}
 		}
 		case 3:
 		{
-			cout << "P1(x) = " << object << '\n';
-			constant = inputDouble("\nEnter the value of x to evaluate the polynomial");
-			object.substituteXEqual(constant);
-			break;
+
+			if (inputCheck) 
+			{
+				cout << "P1(x) = " << object << '\n';
+				constant = inputDouble("\nEnter the value of x to evaluate the polynomial");
+				object.substituteXEqual(constant);
+				break;
+			}
+			else
+			{ 
+				cout << "Error: 0 terms! Please enter the terms and try again.";
+				break;
+			}
 		}
 		case 4: 
 		{ 
-			cout << "\tPolynomial(x) = " << object<<'\n';
-			cout<< "\n\tDerivative"<<object.getDerivative(); 
-			break;
-		
+			if (inputCheck)
+			{
+				cout << "\tPolynomial(x) = " << object << '\n';
+				cout << "\n\tDerivative" << object.getDerivative();
+				break;
+			}
+			else
+			{
+				cout << "Error: 0 terms! Please enter the terms and try again.";
+				break;
+			}
 		}
 		case 5: 
-		{
-			cout << "\tPolynomial(x) = " << object << '\n';
-			cout << "\n\tIntegeral" << object.getIntergral();  break;
+		{	
+			if (inputCheck)
+			{
+				cout << "\tPolynomial(x) = " << object << '\n';
+				cout << "\n\tIntegeral" << object.getIntergral();
+				break;
+			}
+			else
+			{
+				cout << "Error: 0 terms! Please enter the terms and try again.";
+				break;
+			}
 		}
 		default: cout << "\t\t    ERROR-Invalid Option. Please re-enter."; break;
 		}
