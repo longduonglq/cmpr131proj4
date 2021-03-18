@@ -64,7 +64,8 @@ void polyMany() {}
 // main menu with 2 choices a and B
 void polyMain();
 
-//Duyen TRan
+//Precondition: N/A
+//Postcondition: Prints menu of polynomials to choose A polynomial or Multiple polynomials
 void polyMain()
 {
 	string input = "0ab";
@@ -97,7 +98,8 @@ void polyMain()
 	}
 }
 
-//Duyen TRan
+//Precondition: N/A
+//Postcondition: print put the menu choice on a polynomial.
 void polySingular()
 {
 	char option;
