@@ -23,7 +23,7 @@ public:
 	Polynomials getIntergral();
 	
 	// calculate value of poly when x = value
-	double substituteXEqual(double x);
+	void substituteXEqual();
 
 	friend std::ostream& operator<<(std::ostream& os, const Polynomials& poly);
 

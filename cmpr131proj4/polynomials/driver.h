@@ -125,7 +125,7 @@ void polySingular()
 		switch (option)
 		{
 		case 1: object.getHigestDegree();  break;
-		case 2:   break;
+		case 2:  break;
 		case 3: object.substituteXEqual();  break;
 		case 4: object.getDerivative(); break;
 		case 5: object.getIntergral();  break;

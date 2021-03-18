@@ -85,10 +85,14 @@ int Polynomials::getHigestDegree() const
 }
 
 //Precondition: x valueable
-//Postcondition: return the result of the polynomial at the x value.
-double Polynomials::substituteXEqual(double x)
+//Postcondition:show the result of the polynomial at the x value.
+void Polynomials::substituteXEqual()
 {
 	double substitule = 0;
+	double x;
+
+	cout << "X = ";
+	cin >> x;
 
 	for (int index = 0; index <= degree; index++)
 	{
@@ -97,7 +101,6 @@ double Polynomials::substituteXEqual(double x)
 	
 	cout << "subtutute of the polynomial at x=" << x << " is: " << substitule << endl;
 
-	return substitule;
 }
 
 //Precondition: N/A
