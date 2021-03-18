@@ -142,6 +142,7 @@
     <ClCompile Include="complex.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="polynomials\polynomials.cpp" />
+    <ClCompile Include="rational.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="complex.h" />
