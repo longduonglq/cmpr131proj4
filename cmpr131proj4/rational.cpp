@@ -1,3 +1,6 @@
+//Names: Christopher Gomez, Gia Minh Hoang
+//Date: 3/17/2021
+//Description: Implementation file for the polynomials class
 
 #include "rationals/rational.h"
 

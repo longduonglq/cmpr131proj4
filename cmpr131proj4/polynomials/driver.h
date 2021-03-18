@@ -1,3 +1,7 @@
+//Names: Long Duong, Duyen Tran, Lincoln and Andrew
+//Date: 3/17/2021
+//Description: driver for polynomial
+
 #pragma once
 #include "polynomials.h"
 #include<vector>
