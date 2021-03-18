@@ -64,7 +64,7 @@ int Complex::complexMainMenu()
 {
 	int opt;
 	cout << "\n\t 1- A complex number.\n";
-	cout << "\n\t 2- Multiple complex  numbers.\n";
+	cout << "\n\t 2- Multiple complex numbers.\n";
 	cout << "\n\t 0- Quit.\n\n";
 	cout << '\t' << string(40, char(205)) << '\n';
 	opt = inputInteger("\n\t Option: ", 0, 2);
